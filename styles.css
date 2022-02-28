@@ -1,0 +1,376 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+:root {
+    --blue: #0b79b6;
+    --light-blue: #48a8e5;
+    --dark-blue: #133a7d;
+    --black: #000;
+    --white: #fff;
+    --silver: #c6c6c6;
+    --grey: #939498;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    padding: 30px 100px;
+    background-color: var(--white);
+}
+
+/*header*/
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 8vh;
+}
+
+header .logo {
+    width: 150px;
+    z-index: 200;
+}
+
+header nav {
+    width: 30%;
+}
+
+header .navigation {
+    display: flex;
+    justify-content: space-between;
+}
+
+header .navigation li {
+    list-style-type: none;
+}
+
+header .navigation li a {
+    text-decoration: none;
+    color: var(--grey);
+    transition: 0.3s;
+}
+
+header .navigation li a:hover {
+    color: var(--blue);
+}
+
+.burger {
+    cursor: pointer;
+    display: none;
+    z-index: 2;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--blue);
+    margin: 5px;
+    transition: 0.2s ease;
+}
+
+/*content*/
+section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+section button {
+    background-color: var(--blue);
+    padding: 0.5em 1em;
+    border: 2px solid var(--blue);
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 2em;
+    color: var(--white);
+    transition: 0.6s;
+    font-size: 1.3rem;
+}
+
+section button:hover {
+    background-color: var(--white);
+    color: var(--blue);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content .car-photo {
+    width: 50%;
+}
+
+.content h2 {
+    font-size: 4rem;
+    text-transform: uppercase;
+    color: var(--grey);
+}
+
+.content h3 {
+    font-size: 2rem;
+    color: var(--blue);
+    text-transform: uppercase;
+}
+
+section .dots {
+    display: flex;
+}
+
+section .dots .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: var(--grey);
+    margin: 0 1rem 0 0
+}
+
+section .dots .dot.active {
+    background-color: var(--blue);
+}
+
+
+/*slider*/
+.slider {
+    pointer-events: none;
+}
+
+.slider .slide {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.slider .slide.active {
+    opacity: 1;
+    top: 40%;
+}
+
+.slider .slide h3 {
+    color: var(--grey);
+    font-size: 1.5rem;
+}
+
+.slider .slide h3:nth-child(2) {
+    text-align: right;
+}
+
+.slider .slide h3 span {
+    color: var(--blue);
+    font-size: 3rem;
+}
+
+/*footer*/
+footer {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 8vh;
+
+}
+
+footer .socials {
+    display: flex;
+}
+
+footer .socials li {
+    margin: 0 1rem 0 0;
+    list-style-type: none;
+}
+
+footer .socials .fa-brands {
+    font-size: 1.5rem;
+    color: var(--grey);
+    transition: 0.4s;
+}
+
+footer .socials .fa-brands:hover {
+    font-size: 1.5rem;
+    color: var(--blue)
+}
+
+@media (max-width: 1600px) {
+    header nav {
+        width: 50%;
+    }
+}
+
+@media (max-width: 1280px) {
+    header nav {
+        width: 50%;
+    }
+
+    .slider .slide h3 {
+        font-size: 1rem;
+    }
+
+    .slider .slide h3 span {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 990px) {
+    section {
+        margin-top: 50px;
+    }
+
+    body {
+        padding: 20px 30px;
+        overflow-x: hidden;
+    }
+
+    .burger {
+        position: relative;
+        display: block;
+        z-index: 20;
+    }
+
+    .burger div.active {
+        background-color: var(--white);
+    }
+
+    header nav {
+        width: auto;
+    }
+
+    header .navigation {
+        position: absolute;
+        right: 0;
+        top: 0;
+        background-color: var(--blue);
+        height: 100%;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        transform: translateX(100%);
+        transition: transform 0.6s ease-in-out;
+        z-index: 10;
+    }
+
+    header .nav-active {
+        transform: translateX(0);
+        overflow: hidden;
+    }
+
+    header .navigation li {
+        opacity: 0;
+        overflow: hidden;
+        padding: 5px 0;
+    }
+
+    header .navigation li a {
+        position: relative;
+        display: inline-block;
+        width: 100px;
+        color: var(--white);
+        text-align: center;
+    }
+
+    header .navigation li a::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: -1px;
+        transform: translateX(-100%);
+        width: 100px;
+        height: 2px;
+        background-color: var(--white);
+        transition: 0.4s;
+    }
+
+    header .navigation li a:hover::after {
+
+        transform: translateX(0);
+    }
+
+    header .navigation li a:hover {
+        color: var(--white);
+    }
+
+    .content .car-photo {
+        width: 100%;
+    }
+
+    .content h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .content h3 {
+        font-size: 1rem;
+    }
+
+    .slider {
+        position: relative;
+        display: block;
+        width: 100%;
+        min-height: 200px;
+    }
+
+    .slider .slide {
+        transform: translateY(-50%);
+        flex-direction: column;
+        align-items: center;
+        opacity: 0;
+        transition: 0.4s;
+    }
+
+    .slider .slide.active {
+        top: 50%;
+    }
+
+    .slider .slide h3 {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .slider .slide h3:nth-child(2) {
+        text-align: center;
+    }
+
+    .slider .slide h3 span {
+        color: var(--blue);
+        font-size: 2rem;
+    }
+
+    footer {
+        justify-content: center;
+    }
+}
+
+.hide {
+    overflow: hidden;
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
